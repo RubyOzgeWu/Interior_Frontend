@@ -1,0 +1,618 @@
+#project-control {
+    background: #f1f6fd;
+    width: 100vw;
+    height: calc(100vh - 50px);
+    box-sizing: border-box;
+    position: fixed;
+    top: 50px;
+    right: 0;
+    padding: 1rem;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 1.25rem;
+        padding-right: 2rem;
+        max-height: 2.5rem;
+
+        h5 {
+            font-weight: 500;
+            padding: 0 1rem;
+            font-size: 1.75rem;
+        }
+
+        .btn-bulletin {
+            color: #5d5d5d;
+
+            .q-btn__content .q-icon {
+                font-size: 1.85rem;
+                padding-right: 0.5rem;
+            }
+
+            span {
+                font-size: 1.35rem;
+            }
+        }
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        align-items: stretch;
+        padding: 0 2rem;
+        padding-top: 1rem;
+
+        .project-wrapper {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+            .project-info {
+                .q-btn {
+                    color: #7c7c7c;
+                    font-size: 1.25rem;
+                    position: absolute;
+                    top: 3%;
+                    right: 1%;
+                    z-index: 1;
+                }
+
+                .q-card__section {
+                    display: flex;
+                    padding: 1rem 2.5rem;
+                    padding-bottom: 1.75rem;
+
+                    .info {
+                        flex-grow: 7;
+
+                        .col {
+                            font-size: 1.35rem;
+                            color: #5d5d5d;
+                        }
+
+                        .project-title {
+                            align-items: center;
+                            color: #5d5d5d;
+
+                            .project-name {
+                                font-size: 1.55rem;
+                                font-weight: 700;
+                                margin-right: 1rem;
+                            }
+
+                            .project-status {
+                                font-size: 1rem;
+                                border-radius: 1rem;
+                                padding: 0.1rem 0.4rem;
+
+                                &.status-preparing {
+                                    background-color: $pending;
+                                    color: #5d5d5d;
+                                }
+
+                                &.status-in-progress {
+                                    background-color: $inProgress;
+                                    color: white;
+                                }
+
+                                &.status-done {
+                                    background-color: $done;
+                                    color: white;
+                                }
+
+                                &.status-expired {
+                                    background-color: $expired;
+                                    color: white;
+                                }
+                            }
+                        }
+
+                        .project-owner {
+                            justify-content: center;
+                        }
+                    }
+
+                    .complete-container {
+                        flex-grow: 5;
+                    }
+                }
+            }
+
+            .btn-add {
+                margin-top: 1.5rem;
+                padding-right: 0.75rem;
+                display: flex;
+                justify-content: flex-end;
+
+                .q-icon {
+                    font-size: 3rem;
+                    color: #7c7c7c;
+                }
+            }
+
+            .tasks-container {
+                flex-grow: 1;
+                overflow: scroll;
+
+                .q-stepper {
+                    padding: 3.5rem 25rem 2rem 3rem;
+
+                    .q-stepper__title {
+                        font-size: 1.5rem;
+                        font-weight: 500;
+                    }
+
+                    .task-card {
+                        font-size: 1.25rem;
+                        justify-content: space-between;
+                        padding: 1rem;
+                        color: #5d5d5d;
+
+                        .btn-menu {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                        }
+
+                        .task-date {
+                            margin-bottom: 1.5rem;
+                        }
+
+                        p {
+                            margin: 0;
+                        }
+
+                        span {
+                            font-size: 1rem;
+                            border-radius: 1rem;
+                            padding: 0.1rem 0.4rem;
+
+                            &.status-preparing {
+                                background-color: $pending;
+                                color: #5d5d5d;
+                            }
+
+                            &.status-in-progress {
+                                background-color: $inProgress;
+                                color: white;
+                            }
+
+                            &.status-done {
+                                background-color: $done;
+                                color: white;
+                            }
+
+                            &.status-expired {
+                                background-color: $expired;
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .bulletin-board-wrapper {
+            display: none;
+        }
+    }
+
+    .pad-bulletin-board-wrapper {
+        padding: 2rem 1.5rem;
+        border-radius: 0.5rem 0 0 0.5rem;
+        background: #e1e5ee;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .bulletin-header {
+        margin-bottom: 0.8rem;
+        color: $main;
+
+        h5 {
+            font-size: 1.85rem;
+            padding-left: 0.45rem;
+            font-weight: 500;
+        }
+
+        .q-btn {
+            font-size: 1.75rem;
+        }
+    }
+
+    .bulletin-content {
+        flex-grow: 1;
+        overflow-y: scroll;
+
+        .announcement-card {
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 1rem;
+
+            .q-card__section {
+                display: flex;
+                flex-direction: column;
+
+                p {
+                    margin: 0;
+                }
+
+                .announcement-title {
+                    font-size: 1.5rem;
+                    font-weight: 500;
+                }
+
+                .announcement-content {
+                    flex-grow: 1;
+                    font-size: 1.25rem;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 4;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
+
+    #doughnutBox {
+        transform: scale(1);
+        width: 150px;
+        margin-right: 0;
+
+        p {
+            font-size: 2rem;
+        }
+    }
+}
+
+.custom-textarea.q-field__native{
+    height: 600px;
+    max-height: 750px;
+}
+
+.announcement-board{
+    width: 800px;
+    height: 900px;
+    padding: 2.5rem 1.5rem;
+
+    .title{
+        margin-bottom: 2.5rem;
+    }
+    .content{
+        font-size: 1.5rem;
+        line-height: 1.5;
+        color: #5d5d5d;
+    }
+}
+
+
+//   /* 筆電尺寸 */
+@media (min-width: 1440px) {
+    #project-control {
+        width: calc(100vw - 250px);
+        padding-top: 0;
+
+        .header {
+            padding: 0 1.25rem;
+
+            h5 {
+                font-size: 1.5rem;
+            }
+
+            .btn-bulletin {
+                display: none;
+            }
+        }
+
+        .content {
+            padding: 0rem 2rem;
+            padding-bottom: 0rem;
+            flex-direction: row;
+
+            .project-wrapper {
+                padding-right: 1.5rem;
+                flex: 2;
+
+                .project-info {
+                    .q-btn {
+                        color: #7c7c7c;
+                        font-size: 1rem;
+                        position: absolute;
+                        top: 3%;
+                        right: 1%;
+                        z-index: 1;
+                        transition: all 0.25s;
+
+                        &:hover {
+                            color: $main;
+                        }
+                    }
+
+                    .q-card__section {
+                        display: flex;
+                        padding: 0rem 1.75rem;
+                        padding-top: 1rem;
+                        padding-bottom: 1.25rem;
+                        height: 150px;
+
+                        .info {
+                            flex-grow: 7;
+
+                            .col {
+                                font-size: 0.85rem;
+                                color: #5d5d5d;
+                            }
+
+                            .project-title {
+                                align-items: center;
+                                color: #5d5d5d;
+
+                                .project-name {
+                                    font-size: 1rem;
+                                    font-weight: 700;
+                                    margin-right: 1rem;
+                                }
+
+                                .project-status {
+                                    font-size: 0.75rem;
+                                    border-radius: 1rem;
+                                    padding: 0.1rem 0.4rem;
+
+                                    &.status-preparing {
+                                        background-color: $pending;
+                                        color: #5d5d5d;
+                                    }
+
+                                    &.status-in-progress {
+                                        background-color: $inProgress;
+                                        color: white;
+                                    }
+
+                                    &.status-done {
+                                        background-color: $done;
+                                        color: white;
+                                    }
+
+                                    &.status-expired {
+                                        background-color: $expired;
+                                        color: white;
+                                    }
+                                }
+                            }
+                        }
+
+                        .complete-container {
+                            flex-grow: 5;
+                        }
+                    }
+                }
+
+                .btn-add {
+                    margin-top: 0.5rem;
+                    padding-right: 0.75rem;
+                    display: flex;
+                    justify-content: flex-end;
+
+                    .q-icon {
+                        font-size: 2.25rem;
+                        color: #7c7c7c;
+                        transition: all 0.25s;
+
+                        &:hover {
+                            color: $main;
+                        }
+                    }
+                }
+
+                .tasks-container {
+                    margin-top: 0rem;
+
+                    .q-stepper {
+                        padding: 1.5rem 15rem 2rem 3rem;
+
+                        .q-stepper__title {
+                            font-size: 1.05rem;
+                            font-weight: 500;
+                        }
+
+                        .task-card {
+                            font-size: 1rem;
+                            justify-content: space-between;
+                            padding: 1rem;
+                            color: #5d5d5d;
+
+                            .btn-menu {
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                            }
+
+                            .task-date {
+                                margin-bottom: 1.5rem;
+                            }
+
+                            p {
+                                margin: 0;
+                            }
+
+                            span {
+                                font-size: 0.75rem;
+                                border-radius: 1rem;
+                                padding: 0.1rem 0.4rem;
+
+                                &.status-preparing {
+                                    background-color: $pending;
+                                    color: #5d5d5d;
+                                }
+
+                                &.status-in-progress {
+                                    background-color: $inProgress;
+                                    color: white;
+                                }
+
+                                &.status-done {
+                                    background-color: $done;
+                                    color: white;
+                                }
+
+                                &.status-expired {
+                                    background-color: $expired;
+                                    color: white;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .bulletin-board-wrapper {
+                flex: 1;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                border-radius: 0.25rem;
+                background-color: #fff;
+                padding: 1rem;
+
+                .bulletin-header {
+                    margin-bottom: 0;
+                    color: $main;
+
+                    h5 {
+                        font-size: 1.35rem;
+                        padding-left: 0.45rem;
+                        font-weight: 500;
+                    }
+
+                    .q-btn {
+                        font-size: 1.25rem;
+                    }
+                }
+
+                .bulletin-content {
+                    .announcement-card {
+                        margin-bottom: 1.5rem;
+                        padding: 0;
+                        background: #f1f6fd;
+
+                        .q-card__section {
+                            padding-top: 0.5rem;
+
+                            .announcement-title {
+                                font-size: 1.05rem;
+                                font-weight: 500;
+                            }
+
+                            .announcement-content {
+                                font-size: 0.9rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .q-drawer-container {
+            display: none;
+        }
+
+        #doughnutBox {
+            transform: scale(0.75);
+            height: 100%;
+
+            p {
+                font-size: 2rem;
+            }
+        }
+    }
+}
+
+.custom-textarea.q-field__native {
+    height: 350px;
+    max-height: 400px;
+}
+
+.announcement-board {
+    height: 700px;
+    padding: 1.5rem;
+
+    .title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .content {
+        font-size: 1rem;
+    }
+}
+
+
+/* 桌機尺寸 */
+@media (min-width: 1920px) {
+    #project-control {
+        .header {
+            padding: 0 3rem;
+        }
+
+        .content {
+            padding: 1rem 4rem;
+            padding-bottom: 0;
+
+            .project-wrapper {
+                padding-right: 2.5rem;
+                flex: 3;
+
+                .project-info {
+                    .q-card__section {
+                        padding: 0.75rem 2.5rem;
+                        padding-bottom: 1.25rem;
+                        height: 200px;
+                    }
+                }
+
+                .btn-add {
+                    margin-top: 0.75rem;
+                }
+
+                .tasks-container {
+                    .q-stepper {
+                        padding: 2rem 25rem 2rem 8rem;
+
+                        .task-card {
+                            padding: 1.25rem;
+
+                            .btn-menu {
+                                position: absolute;
+                                top: 1%;
+                                right: 1%;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .bulletin-board-wrapper {
+                flex: 1;
+
+
+                .bulletin-content {
+                    .announcement-card {
+                        padding: 0.5rem;
+                        padding-top: 0.25rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .custom-textarea.q-field__native {
+        height: 500px;
+        max-height: 500px;
+    }
+
+    .announcement-board {
+        height: 800px;
+    }
+}
+
+

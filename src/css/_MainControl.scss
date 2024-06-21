@@ -1,0 +1,403 @@
+/* 平板尺寸 */
+#projects-wrapper {
+    background: #F1F6FD;
+    width: 100vw;
+    height: calc(100vh - 50px);
+    box-sizing: border-box;
+    position: fixed;
+    top: 50px;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: hidden;
+    padding: 1rem;
+
+    .filter {
+        flex: 1 0 100%;
+        display: flex;
+        padding: 0 1.25rem;
+
+        .search {
+            margin-left: auto;
+            padding-right: 0.25rem;
+        }
+    }
+
+    h5 {
+        flex: 1 0 100%;
+        font-weight: 500;
+        padding: 0 1rem;
+        font-size: 1.75rem;
+    }
+
+    .projects-container {
+        flex-grow: 1;
+        height: 90%;
+        padding: 1rem;
+        padding-top: 0;
+        overflow-y: hidden;
+        display: flex;
+        flex-direction: column;
+        
+
+        .projects-show {
+            margin-bottom: 3rem;
+
+            .show-card {
+                color: #5d5d5d;
+                border-radius: 0.5rem;
+
+                .q-card__section {
+                    display: flex;
+                    justify-content: space-between;
+
+                    .info {
+                        display: flex;
+                        flex-direction: column;
+                        flex-grow: 11;
+                        padding-left: 1rem;
+
+                        p {
+                            font-size: 1.25rem;
+                            font-weight: 500;
+                            margin: 0;
+                        }
+
+                        .row {
+                            align-items: baseline;
+
+                            div:first-child {
+                                font-size: 4rem;
+                                font-weight: 500;
+                                flex-grow: 3;
+                                color: black;
+                            }
+
+                            div:nth-child(2) {
+                                flex-grow: 9;
+
+                                span {
+                                    background-color: $secondary;
+                                    color: white;
+                                    padding: 0.25rem 0.35rem;
+                                    border-radius: 1rem;
+                                }
+                            }
+                        }
+                    }
+
+                    .q-icon {
+                        flex-grow: 1;
+                        justify-items: flex-end;
+                        font-size: 2.5rem;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+
+        .projects {
+            height: 100%;
+            overflow-y: scroll;
+            overflow-x: hidden;
+
+            .project-card {
+                padding-bottom: 1rem;
+                border-radius: 0.5rem;
+                margin-bottom: 1rem;
+
+                .row .col:first-child {
+                    padding-top: 0.75rem;
+                }
+
+                .project-name {
+                    font-size: 1.25rem;
+                    font-weight: 500;
+                }
+
+                .project-date {
+                    margin-bottom: 1.5rem;
+                }
+
+                .project-status span {
+                    padding: 0.15rem 0.25rem;
+                    border-radius: 1rem;
+
+                    &.status-preparing {
+                        background-color: $pending;
+                        color: #5d5d5d;
+                    }
+
+                    &.status-in-progress {
+                        background-color: $inProgress;
+                        color: white;
+                    }
+
+                    &.status-done {
+                        background-color: $done;
+                        color: white;
+                    }
+
+                    &.status-expired {
+                        background-color: $expired;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+
+    .complete-container {
+        display: none;
+    }
+}
+
+.add-form {
+    width: 800px;
+    padding: 2rem 1rem;
+
+    .q-field {
+        margin-bottom: 1.5rem;
+    }
+
+    .btn-cancel {
+        background: $pending;
+    }
+
+    .btn-save {
+        background: $main;
+        color: white;
+    }
+}
+
+/* 筆電尺寸*/
+@media (min-width: 1440px) {
+    #projects-wrapper {
+        width: calc(100vw - 250px);
+        padding: 0 2rem;
+
+        h5 {
+            font-size: 1.5rem;
+        }
+
+        .projects-container {
+            height: 85%;
+
+            .projects-show {
+                margin-bottom: 2.5rem;
+            }
+
+            .projects-show .show-card .q-card__section .info {
+                padding-left: 0.75rem;
+                p {
+                    font-size: 0.85rem;
+                }
+                .row div:first-child {
+                    font-size: 2.55rem;
+                }
+                span {
+                    font-size: 0.65rem;
+                }
+            }
+
+            .projects-show .show-card .q-card__section .q-icon {
+                font-size: 1.75rem;
+                font-weight: 500;
+                transition: all 0.5s;
+                &:hover {
+                    color: $main;
+                    cursor: pointer;
+                    font-weight: 700;
+                }
+            }
+
+            .projects {
+                .project-card {
+                    padding-bottom: 0.85rem;
+                    margin-bottom: 1.15rem;
+
+                    .row {
+                        padding: 0.15rem 1rem;
+                    }
+
+                    .row .col:first-child {
+                        padding-top: 0.75rem;
+                    }
+
+                    .project-name {
+                        font-size: 1.05rem;
+                        font-weight: 500;
+                    }
+
+                    .project-date {
+                        font-size: 0.85rem;
+                        margin-bottom: 1.25rem;
+                    }
+
+                    .project-status span {
+                        font-size: 0.75rem;
+                        padding: 0.15rem 0.25rem;
+                        border-radius: 1rem;
+                    }
+                }
+            }
+        }
+
+        .complete-container {
+            display: block;
+            flex-grow: 1;
+            width: 300px;
+            height: 85%;
+            padding: 1rem 1.5rem;
+            padding-top: 0;
+
+            .complete-card {
+                border-radius: 0.5rem;
+                width: 100%;
+                height: 100%;
+                padding: 0.5rem 0.75rem;
+
+                h6 {
+                    font-weight: 700;
+                }
+
+                .selectedProject {
+                    padding: 0 0.75rem;
+                    width: 100%;
+                    color: #5d5d5d;
+
+                    .selectedProject-name {
+                        font-size: 1.15rem;
+                        font-weight: 500;
+                        text-align: center;
+                        margin: 0.5rem 0 2.25rem 0;
+                    }
+
+                    .selectedProject-table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        font-size: 0.9rem;
+
+                        td {
+                            padding: 0.65rem;
+                            vertical-align: top;
+                        }
+
+                        tr td:first-child {
+                            width: 33.33%;
+                            white-space: nowrap;
+                            font-weight: 500;
+                        }
+
+                        tr td:last-child {
+                            width: 66.66%;
+                            word-wrap: break-word;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* 桌機尺寸*/
+@media (min-width: 1920px) {
+    #projects-wrapper {
+        padding: 0 4rem;
+
+        .projects-container {
+            height: 86%;
+
+            .projects-show {
+                margin-bottom: 2.5rem;
+            }
+
+            .projects-show .show-card .q-card__section .info {
+                padding-left: 0.75rem;
+                p {
+                    font-size: 0.95rem;
+                }
+                .row div:first-child {
+                    font-size: 2.75rem;
+                }
+                span {
+                    font-size: 0.75rem;
+                }
+            }
+
+            .projects-show .show-card .q-card__section .q-icon {
+                font-size: 2rem;
+                font-weight: 500;
+                transition: all 0.5s;
+                &:hover {
+                    color: $main;
+                    cursor: pointer;
+                    font-weight: 700;
+                }
+            }
+
+            .projects {
+                .project-card {
+                    padding-bottom: 0.95rem;
+                    margin-bottom: 1.15rem;
+
+                    .row {
+                        padding: 0.25rem 1rem;
+                    }
+
+                    .row .col:first-child {
+                        padding-left: 0.65rem;
+                        padding-top: 0.75rem;
+                    }
+
+                    .project-name {
+                        font-size: 1.05rem;
+                        font-weight: 500;
+                    }
+
+                    .project-date {
+                        font-size: 0.85rem;
+                        margin-bottom: 1.25rem;
+                    }
+
+                    .project-status span {
+                        font-size: 0.75rem;
+                        padding: 0.15rem 0.25rem;
+                        border-radius: 1rem;
+                    }
+                }
+            }
+        }
+
+        .complete-container {
+            height: 86%;
+
+            .complete-card {
+                padding: 1rem 1rem;
+
+                .selectedProject {
+                    padding: 0 1.5rem;
+
+                    .selectedProject-name {
+                        font-size: 1.3rem;
+                        margin: 0.5rem 0 3.5rem 0;
+                    }
+
+                    .selectedProject-table {
+                        font-size: 1rem;
+
+                        td {
+                            padding: 0.5rem;
+                            padding-bottom: 1.5rem;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+

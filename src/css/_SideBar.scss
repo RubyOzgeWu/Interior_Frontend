@@ -1,0 +1,107 @@
+
+
+#sidebar-container{
+    padding: 2rem 0rem;
+    .user{
+        border-radius: 5rem;
+        background: #2466e255;
+        color: #5D5D5D;
+        width: 70%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .account-info{
+            display: flex;
+            align-items: center;
+
+            .q-icon{
+                padding: 0.5rem;
+            }
+
+            .info-text{
+                margin-left: 1rem;
+                p{
+                    margin: 0;
+                }
+            }
+        }
+
+        .q-icon{
+            color: #5D5D5D;
+            font-size: 1.5rem;
+        }
+
+        .expand-icon:hover{
+            cursor: pointer;
+        }
+
+        .toggleDown{
+            width: 78%;
+            position: absolute;
+            top: 110%;
+            right: 11%;
+            z-index: 1;
+            
+            
+            .q-card__section{
+                transition: all 0.3s;
+                
+                &:hover{
+                    background-color: #E1E5EE;
+                    cursor: pointer;
+
+                    p{
+                        color: $main;
+                    }
+                }
+            }
+            
+
+            p{
+                color: black;
+                margin: 0;
+            }
+            
+        }
+        .toggle-enter-active, .toggle-leave-active {
+            transition: all 0.3s;
+        }
+        .toggle-enter, .toggle-leave-to {
+            opacity: 0;
+        }
+    }
+    
+
+    .menu {
+        padding: 2.25rem;
+        display: flex;
+        flex-direction: column;
+
+        a{
+            padding:1.25rem 0.75rem;
+            text-decoration: none;
+
+            &:hover{
+                background: #E1E5EE;
+                cursor: pointer;
+            }
+
+            .q-icon{
+                font-size: 1.25rem;
+                color: #7c7c7c;
+                margin-right: 0.75rem;
+            }
+            span{
+                color: #7c7c7c;
+                font-weight: 500;
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+
+
+

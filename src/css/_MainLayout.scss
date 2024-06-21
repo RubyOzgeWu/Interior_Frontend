@@ -1,0 +1,37 @@
+#main-layout{
+    .q-header{
+        box-shadow: none;
+
+        .q-icon{
+            color: #7c7c7c;
+        }
+    }
+    .q-layout__section--marginal{
+        background-color: #F1F6FD;
+    }
+    .q-item__label{
+        font-size: 1.25rem;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .main-btn-back{
+        display: none;
+    }
+}
+
+@media (min-width: 1440px){
+    #main-layout{
+        .main-btn-back{
+            display: block;
+
+            i{
+                transition: all 0.25s;
+                &:hover{
+                    color: $main;
+                }
+
+            }
+        }
+    }
+}
