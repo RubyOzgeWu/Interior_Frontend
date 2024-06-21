@@ -52,6 +52,9 @@ module.exports = configure(function (/* ctx */) {
       env: {
         VITE_API: process.env.VITE_API,
       },
+      extendViteConf (viteConf) {
+        viteConf.base = "";
+      },
 
       vueRouterMode: "hash", // available values: 'hash', 'history'
       // vueRouterBase,
