@@ -1,33 +1,52 @@
-# Quasar App (interior_frontend)
+# 室內設計專案管理系統
+這是一個專為室內設計專案而設計的管理平台，旨在協助設計團隊有效管理專案進程、紀錄重要資訊，並促進團隊內外的有效溝通。
 
-A Quasar Project
-
-## Install the dependencies
-```bash
-yarn
-# or
-npm install
-```
-
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
-```bash
-quasar dev
-```
-
-
-### Lint the files
-```bash
-yarn lint
-# or
-npm run lint
-```
+## 主要功能
+- 專案流程管理
+    - 管理室內設計專案的各個階段和任務
+    - 追蹤專案進度，確保專案按時完成
+- 紀錄管理
+    - 存儲設計文件、會議記錄、材料廠商等重要資訊
+- 彈性溝通
+    - 提供團隊成員彈性新增留言和公告的功能
+    - 促進團隊內外的即時溝通和資訊分享
+- 仍在開發中的功能
+    - 指派任務、任務接收
+    - 個人中心（個人設定、訊息通知）
+    - 訪問紀錄
+    - 材料庫登錄
 
 
+## 如何使用
+https://rubyozgewu.github.io/Interior_Frontend/
 
-### Build the app for production
-```bash
-quasar build
-```
+### 註冊及登入
+- 填入帳號資料及身份確認（設計師、主管）即可申請帳號
+- 填入帳號、密碼即可登入
+- 測試用帳號
+    - 帳號：user
+    - 密碼：1234
 
-### Customize the configuration
-See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
+### 主要控制台
+- 新增、編輯、刪除專案
+- 階段專案數量顯示，並以標籤顯示各專案進度狀態
+- 單擊專案卡片，顯示專案完成度
+- 雙擊專案卡片，進入專案控制台
+
+### 專案控制台
+- 顯示、編輯專案基本資料
+- 新增、編輯、刪除任務
+- 專案中各項任務依照 deadline 排序，並以標籤顯示各任務進度狀態
+- 公告欄紀錄專案相關資訊（材料、廠商、會議重要事項等）
+- 雙擊任務卡片，進入任務控制台
+
+### 任務控制台
+- 顯示、編輯任務訊息
+- 新增附件檔案（圖檔、照片等）
+- 留言板新增任務時的即時通訊紀錄
+
+
+## 聯絡我們
+如有任何問題或建議，請聯繫我們：
+
+Email: rubyozgewu@gmail.com
